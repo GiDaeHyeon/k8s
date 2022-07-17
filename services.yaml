@@ -12,5 +12,19 @@ spec:
       nodePort: 30080
   selector:
     app: webapp
-    release: "0"
   type: NodePort # ClusterIP | LoadBalancer(only Cloud)
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: john-queue
+spec:
+  ports:
+    - name: http
+      port: 8161
+      nodePort: 30010
+  selector:
+    app: queue
+  type: NodePort
